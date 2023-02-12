@@ -217,7 +217,8 @@
       if (settings.ignoreDiacritics) {
         word = jQuery.removeDiacritcs(word);
       }
-      return word.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+      return word
+      //return word.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
     });
 
     if (words.length === 0) {
@@ -234,6 +235,7 @@
         pattern +
         (settings.wordsBoundaryEnd || settings.wordsBoundary);
     }
+    console.log("[jquery.highlight exp["+pattern+"]")
     var re = new RegExp(pattern, flag);
 
     return this.each(function() {
