@@ -68,7 +68,7 @@ window.addEventListener('load', function() {
 				$("#kw-list").on("click", function (event) {
 					handle_keyword_removal(event, tabkey, {fromBgOrPopup: true});
 				})
-				$("#toggleMHL,#casesensitive, #wholeWord, #delimiter, #instant,"
+				$("#toggleMHL,#casesensitive, #wholeWord, #delimiter, #instant, #regexEnable,"
 					+ " #saveWords,#alwaysSearch,#newlineNewColor").on("input", function(event) {
 					handle_option_change(tabkey, event);
 				});
@@ -172,10 +172,9 @@ function handle_highlightWords_change(tabkey, option={}, callback=null) {
 		} else {
 			inputStr = keywordsToStr(tabinfo.keywords, settings)
 		}
-
+		console.log("[Multi-Highlight] handle_highlightWords_change inputStr:[" + inputStr + "]")
         // (instant search mode) or (last char of input is delimiter)
         if (settings.isInstant || inputStr.slice(-1) == settings.delim) {
-			console.log(inputStr)
 			inputKws = keywordsFromStr(inputStr, settings);
 			savedKws = tabinfo.keywords;
 			// differ it

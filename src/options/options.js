@@ -3,9 +3,9 @@
 // ************************************************************************
 debugger;
 document.addEventListener('DOMContentLoaded', function () {
-
     chrome.storage.local.get(['settings', 'popupConfig'], function (result) {
         // init
+        console.log("[Multi-Highlight] settings get")
         var settings = result.settings;
         var popupConfig = result.popupConfig;
         // set html
